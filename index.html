@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>ShareIt - Social Content UnLocker by My Coding Tricks</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="assets/css/shareit.css" rel="stylesheet"/>
+        <style>
+            body{
+                background: #2d2d2d;
+                box-shadow: inset 0px 0px 300px rgba(0,0,0,0.3);
+            }
+        </style>
+    </head>
+    <body>
+<p style="
+    color: #fff;
+    font-size: 73px;
+    margin: 10px;
+    background-color: rgba(146, 146, 146, 0);
+    font-family: cursive;
+    padding: 10px;
+    text-shadow: 3px 4px 0px rgb(160, 160, 160);
+    box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0);
+    text-align: center;
+">shareIt.js</p>
+        <div class="lock mct_shareit_locker">
+            <p style="
+    color: #fff;
+    font-size: 73px;
+    margin: 10px;
+    background-color: rgba(146, 146, 146, 0);
+    font-family: cursive;
+    padding: 10px;
+    text-shadow: 3px 4px 0px rgb(160, 160, 160);
+    box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0);
+    text-align: center;border:2px solid #000;">Thank you!</p>
+        </div>
+        <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+        <script type="text/javascript" src="assets/js/shareit.js"></script>
+        <script>
+            var options = {
+                    facebook:{
+                        url: "http://mycodingtricks.com/",
+                        pageId: "https://www.facebook.com/MyCodingTricks",
+                        appId:676027382527018
+                    },
+                    twitter:{
+                        via: 'mycodingtricks',
+                        url: "http://mycodingtricks.com/",
+                        text: document.title
+                    },
+                    googleplus:{
+                        apikey: 'AIzaSyD_H_TgxVsG0jMy6dMTKjkhHilxIk_bQBk',
+                        url: "http://mycodingtricks.com/",
+                        callback:"trackShareItGooglePlus"
+                    },
+                    linkedIn:{
+                        url: "http://mycodingtricks.com/",
+                        callback: "trackShareItLinkedIn"
+                    },
+                    buttons:["facebook_share","facebook_like","twitter_tweet","twitter_follow","googleplus","linkedin"]
+                };
+            var shareIt = $(".lock").shareIt(options);
+        </script>
+    </body>
+</html>
+
