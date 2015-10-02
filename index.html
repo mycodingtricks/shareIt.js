@@ -12,28 +12,8 @@
         </style>
     </head>
     <body>
-<p style="
-    color: #fff;
-    font-size: 73px;
-    margin: 10px;
-    background-color: rgba(146, 146, 146, 0);
-    font-family: cursive;
-    padding: 10px;
-    text-shadow: 3px 4px 0px rgb(160, 160, 160);
-    box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0);
-    text-align: center;
-">shareIt.js</p>
         <div class="lock mct_shareit_locker">
-            <p style="
-    color: #fff;
-    font-size: 73px;
-    margin: 10px;
-    background-color: rgba(146, 146, 146, 0);
-    font-family: cursive;
-    padding: 10px;
-    text-shadow: 3px 4px 0px rgb(160, 160, 160);
-    box-shadow: 10px 10px 0px 0px rgba(0, 0, 0, 0);
-    text-align: center;border:2px solid #000;">Thank you!</p>
+            
         </div>
         <script type="text/javascript" src="assets/js/jquery.min.js"></script>
         <script type="text/javascript" src="assets/js/shareit.js"></script>
@@ -61,6 +41,17 @@
                     buttons:["facebook_share","facebook_like","twitter_tweet","twitter_follow","googleplus","linkedin"]
                 };
             var shareIt = $(".lock").shareIt(options);
+        </script>
+        <script>
+            var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
         </script>
     </body>
 </html>
