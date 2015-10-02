@@ -70,7 +70,7 @@
             showButtons();
             getCount();
             initContainer();
-            $("#mct_shareit_msg_"+settings.rand).html("Powered By <a href='http://mycodingtricks.com/shareIt.js' target=_blank><strong>My Coding Tricks</strong></a>");
+            $("#mct_shareit_msg_"+settings.rand).html("Powered By <a href='http://mycodingtricks.com/jquery/shareit-js-social-content-unlocker/' target=_blank><strong>My Coding Tricks</strong></a>");
         });
         this.getID = function(){ return settings.rand }
         this.showContent = function(s,v){ showContent(s,v) }
