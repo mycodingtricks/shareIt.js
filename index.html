@@ -5,7 +5,7 @@
         <title>ShareIt - Social Content UnLocker by My Coding Tricks</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="assets/css/shareIt.css" rel="stylesheet"/>
+        <link href="assets/css/shareIt.min.css" rel="stylesheet"/>
         <style>
             body{
                 background: #2d2d2d;
@@ -44,7 +44,7 @@
 
 <div rel="advertisements" style="max-width:730px;width:100%;min-height:100px;margin:30px auto"></div>
 <script src="http://demo.mycodingtricks.com/script.js"></script>
-        <script type="text/javascript" src="assets/js/shareIt.js"></script>
+        <script type="text/javascript" src="assets/js/shareIt.min.js"></script>
         <script>
             var options = {
                     facebook:{
@@ -64,7 +64,8 @@
                     linkedIn:{
                         url: "http://mycodingtricks.com/"
                     },
-                    buttons:["facebook_share","facebook_like","twitter_tweet","twitter_follow","googleplus","linkedin"]
+                    buttons:["facebook_share","facebook_like","twitter_tweet","twitter_follow","googleplus","linkedin"],
+                    close: true
                 };
             var shareIt = $(".lock").shareIt(options);
             var _gaq = _gaq || [];
