@@ -43,9 +43,8 @@
                     shares:0
                 }
             },
-            feedback:{
-                url: "http://mycodingtricks.com"
-            }
+            timeout:0,
+	    close: false
         }, options );
         this.settings = settings;
         // Highlight the collection based on the settings variable.
@@ -81,8 +80,17 @@
             return n;
         }
         function initContainer(){
+	    var $this = this;
             $(window).resize(centerContainer);
             centerContainer();
+	    if($this.timeout>0 && typeof timeout!="undefined"){
+		setTimeout(function(){
+		  $this.showContent("Timeout","Hide",window.location.href);
+		},$this.timeout);
+	    }
+	    if($this.close===true && typeof $this.close!="undefined"){
+		$("#mct_shareit_container_"+settings.rand).find(".mct_shareit_content").prepend("<a onclick='javascript: mct_shareit_container_"+settings.rand+"();' class='mct_close'>&times;</a>");	
+	    }
         }
         function centerContainer(){
             var container = $("#mct_shareit_container_"+settings.rand),
@@ -100,11 +108,15 @@
                     $this.angry();
                 }
         }
+	function closeShareIt(){
+           $this.showContent("Close","Hidden",window.location.href);
+	}
             function trackShareItLinkedIn(){
                 $this.showContent("LinkedIn","Share",$this.settings.linkedIn.url);
             }
             eval("window.mct_shareit_linkedin_"+rand+"=trackShareItLinkedIn");
             eval("window.mct_shareit_googleplus_"+rand+"=trackShareItGooglePlus");
+            eval("window.mct_shareit_close_"+rand+"=closeShareIt");
         function getCount(){
             $.getJSON('http://cdn.api.twitter.com/1/urls/count.json?url='+settings.twitter.url+'&callback=?',function(d){
                 settings.count.twitter.tweets = d.count;
