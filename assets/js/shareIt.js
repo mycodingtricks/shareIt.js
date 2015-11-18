@@ -123,8 +123,8 @@
                 $("#mct_twitter_tweet_"+settings.rand).find(".mct_shareit_button_count i").text(convertNumber(settings.count.twitter.tweets));
             });
             $.getJSON('https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names='+settings.twitter.url+mct'&callback=?',function(d){
-                settings.count.twitter.tweets = d.count;
-                $("#mct_twitter_follow_"+settings.rand).find(".mct_shareit_button_count i").text(convertNumber(settings.count.twitter.tweets));
+                settings.count.twitter.follower = d[0]['followers_count'];
+                $("#mct_twitter_follow_"+settings.rand).find(".mct_shareit_button_count i").text(convertNumber(settings.count.twitter.follower));
             });
             $.getJSON('https://api.facebook.com/method/fql.query?format=json&query=SELECT+total_count+FROM+link_stat+WHERE+url+%3D+%27'+encodeURIComponent(settings.facebook.url)+'%27&callback=?',function(d){
                 settings.count.facebook.share = d[0].total_count;
