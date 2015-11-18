@@ -122,7 +122,7 @@
                 settings.count.twitter.tweets = d.count;
                 $("#mct_twitter_tweet_"+settings.rand).find(".mct_shareit_button_count i").text(convertNumber(settings.count.twitter.tweets));
             });
-            $.getJSON('https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names='+settings.twitter.url+'&callback=?',function(d){
+            $.getJSON('https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names='+settings.twitter.via+'&callback=?',function(d){
                 settings.count.twitter.follower = d[0]['followers_count'];
                 $("#mct_twitter_follow_"+settings.rand).find(".mct_shareit_button_count i").text(convertNumber(settings.count.twitter.follower));
             });
