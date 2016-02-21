@@ -2,7 +2,6 @@
     $.fn.shareIt = function( options ) {
         // This is the easiest way to have default options.
             var HTMLtoHide = false;
-            var $this = this;
             var rand = Math.floor((Math.random() * 1000) + 1);
         var settings = $.extend({
             // These are the defaults.
@@ -71,8 +70,22 @@
             initContainer();
             $("#mct_shareit_msg_"+settings.rand).html("Powered By <a href='http://mycodingtricks.com/jquery/shareit-js-social-content-unlocker/' target=_blank><strong>My Coding Tricks</strong></a>");
         });
+        
+        this.angry = angry;
         this.getID = function(){ return settings.rand }
         this.showContent = function(s,v){ showContent(s,v) }
+        this.trackMctGoogle = function(data){
+            if(data.state=="on"){
+                //User +1 your content
+                //Show your Hidden Content
+                showContent("Google","Plusone",settings.googleplus.url);
+            }else{
+                //User had -1 your content
+                //Do your Stuffs
+                angry();
+            }
+        }
+        var $this = this;
         function convertNumber(n){
             if(n>=1000000000) return (n/1000000000).toFixed(1)+'G';
             if(n>=1000000) return (n/1000000).toFixed(1)+'M';
@@ -185,17 +198,6 @@
                         loadIN();
                         break;                        
                 }
-            }
-        }
-        this.trackMctGoogle = function(data){
-            if(data.state=="on"){
-                //User +1 your content
-                //Show your Hidden Content
-                showContent("Google","Plusone",settings.googleplus.url);
-            }else{
-                //User had -1 your content
-                //Do your Stuffs
-                angry();
             }
         }
         function loadIN(){
@@ -333,7 +335,6 @@
         function angry(){
             $("#mct_shareit_msg_"+settings.rand).html("You don't like Us?").addClass('error');
         }
-        this.angry = angry;
         return this;
     };
  })(jQuery);
