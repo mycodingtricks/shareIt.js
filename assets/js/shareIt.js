@@ -6,7 +6,7 @@
         var settings = $.extend({
             // These are the defaults.
             title: "Share/Like/Follow to Download",
-            rand: Math.floor((Math.random() * 1000) + 1),
+            id: Math.floor((Math.random() * 1000) + 1),
             text: 'Choose Any Social Social Network from below to share our content and Download it.',
             buttons: ["facebook_like","facebook_share","twitter_follow","twitter_tweet","googleplus","linkedin"],
             linkedIn: {
@@ -43,11 +43,14 @@
                 }
             },
             timeout:0,
-	    close: false
+	    close: false,
+            cookie: true,
+            cookieExpiry: 30, 
         }, options );
         this.settings = settings;
         // Highlight the collection based on the settings variable.
         this.each(function(){
+            if(getCookie("mct_shareIt_hide_"+settings.id)=="true") return false;
             var elem = $(this);
             var con = "<div class='mct_shareit_container mct_shareit' id=mct_shareit_container_"+settings.rand+">"+
                     "<div class='mct_shareit_blur'></div>"+
@@ -69,6 +72,11 @@
             getCount();
             initContainer();
             $("#mct_shareit_msg_"+settings.rand).html("Powered By <a href='http://mycodingtricks.com/jquery/shareit-js-social-content-unlocker/' target=_blank><strong>My Coding Tricks</strong></a>");
+            if(settings.timeout!=0){
+                setTimeout(function(){
+                    showContent("timeout","Content Shown",window.location.href);
+                },settings.timeout);
+            }
         });
         
         this.angry = angry;
@@ -91,6 +99,26 @@
             if(n>=1000000) return (n/1000000).toFixed(1)+'M';
             if(n>=1000) return (n/1000).toFixed(1)+'K';
             return n;
+        }
+        function setCookie(name, value, expirydays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (expirydays*24*60*60*1000));
+            var expires = "expires="+ d.toUTCString();
+            document.cookie = name + "=" + value + "; " + expires;
+        }
+        function getCookie(name) {
+            name = name + "=";
+            var cookies = document.cookie.split(';');
+            for(var i = 0; i <cookies.length; i++) {
+                var cookie = cookies[i];
+                while (cookie.charAt(0)==' ') {
+                    cookie = cookie.substring(1);
+                }
+                if (cookie.indexOf(name) == 0) {
+                    return cookie.substring(name.length,cookie.length);
+                }
+            }
+            return "";
         }
         function initContainer(){
 	    var $this = this;
@@ -330,11 +358,12 @@
                     var pr = ss.parent();
                     ss.fadeOut(1000,function(){
                       pr.html(HTMLtoHide).fadeIn();
+                      setCookie("mct_shareIt_hide_"+settings.id,"true",settings.cookieExpiry);
                     });
         }
         function angry(){
             $("#mct_shareit_msg_"+settings.rand).html("You don't like Us?").addClass('error');
         }
         return this;
-    };
+    }
  })(jQuery);
