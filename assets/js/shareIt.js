@@ -50,7 +50,7 @@
         this.settings = settings;
         // Highlight the collection based on the settings variable.
         this.each(function(){
-            if(getCookie("mct_shareIt_hide_"+settings.id)=="true") return false;
+            if(getCookie("mct_shareIt_hide_"+settings.id)=="true") {showContent("Cookie","Cookie is Set",window.location.href);return false};
             var elem = $(this);
             var con = "<div class='mct_shareit_container mct_shareit' id=mct_shareit_container_"+settings.rand+">"+
                     "<div class='mct_shareit_blur'></div>"+
