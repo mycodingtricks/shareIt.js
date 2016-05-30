@@ -358,7 +358,7 @@
                     var pr = ss.parent();
                     ss.fadeOut(1000,function(){
                       pr.html(HTMLtoHide).fadeIn();
-                      setCookie("mct_shareIt_hide_"+settings.id,"true",settings.cookieExpiry);
+                      if(settings.cookie==true) setCookie("mct_shareIt_hide_"+settings.id,"true",settings.cookieExpiry);
                     });
         }
         function angry(){
