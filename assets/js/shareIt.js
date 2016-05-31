@@ -14,7 +14,7 @@
             },
             facebook:{
                 appId: 676027382527018,
-                pageId: 'MyCodingTricks',
+                pageId: 'https://www.facebook.com/MyCodingTricks',
                 url: window.location.href
            },
             twitter:{
@@ -52,26 +52,26 @@
         this.each(function(){
             if(getCookie("mct_shareIt_hide_"+settings.id)=="true") {$(this).fadeIn();return false};
             var elem = $(this);
-            var con = "<div class='mct_shareit_container mct_shareit' id=mct_shareit_container_"+settings.rand+">"+
+            var con = "<div class='mct_shareit_container mct_shareit' id=mct_shareit_container_"+settings.id+">"+
                     "<div class='mct_shareit_blur'></div>"+
                     "<div class='mct_shareit_content'>"+
                     "<h1 class='mct_shareit_title'>"+settings.title+"</h1>"+
                     "<h3 class='mct_shareit_subtitle'>"+settings.text+"</h3>"+
-                    "<div class='mct_shareit_buttons' id=mct_shareit_content_"+settings.rand+">"+
-                    "<div class='mct_twitter_tweet mct_margin_top' id=mct_twitter_tweet_"+settings.rand+"><a href='https://twitter.com/intent/tweet?via="+settings.twitter.via+"&text="+encodeURIComponent(settings.twitter.text)+"&url="+encodeURIComponent(settings.twitter.url)+"' class='mct_shareit_button twitter' data-service='twitter-tweets'><span class='mct_shareit_button_title'>Tweet</span><div class=mct_shareit_button_count><i>0</i></div></a></div>"+
-                    "<div class='mct_twitter_follow mct_margin_top' id=mct_twitter_follow_"+settings.rand+"><a href='https://twitter.com/intent/follow?screen_name="+settings.twitter.via+"' class='mct_shareit_button twitter' data-service='twitter-followers'><span class='mct_shareit_button_title'>Follow</span><div class=mct_shareit_button_count><i>"+settings.count.twitter.follower+"</i></div></a></div>"+
-                    "<div class='mct_facebook_share mct_margin_top' id=mct_facebook_share_"+settings.rand+"><a class='mct_shareit_button fb' data-service='facebook_share'><span class='mct_shareit_button_title'>Share</span><div class=mct_shareit_button_count><i>0</i></div></a></div>"+
-                    "<div class='mct_facebook_like mct_margin_top' id=mct_facebook_like_"+settings.rand+"><a href='"+settings.facebook.pageId+"' class='mct_shareit_button fb' data-service='facebook_like'><span class='mct_shareit_button_title'>Like</span><div class=mct_shareit_button_count><i>0</i></div></a></div>"+
-                    "<div class='mct_googleplus mct_margin_top' id=mct_googleplus_"+settings.rand+"><a href='javascript:void(0);' class='mct_shareit_button google-plus' data-service='googleplus'><span class='mct_shareit_button_title'>Follow</span><div class=mct_shareit_button_count><i>0</i></div></a></div>"+
-                    "<div class='mct_linkedin mct_margin_top' id=mct_linkedin_"+settings.rand+"><a href='javascript:void(0);' class='mct_shareit_button linkedin' data-service='linkedin'><span class='mct_shareit_button_title'>Share</span><div class=mct_shareit_button_count><i>0</i></div></a></div>"+
-                    "</div><div id=\"mct_shareit_msg_"+settings.rand+"\" class='mct_shareit_msg'></div></div></div>";
+                    "<div class='mct_shareit_buttons' id=mct_shareit_content_"+settings.id+">"+
+                    "<div class='mct_twitter_tweet mct_margin_top' id=mct_twitter_tweet_"+settings.id+"><a href='https://twitter.com/intent/tweet?via="+settings.twitter.via+"&text="+encodeURIComponent(settings.twitter.text)+"&url="+encodeURIComponent(settings.twitter.url)+"' class='mct_shareit_button twitter' data-service='twitter-tweets'><span class='mct_shareit_button_title'>Tweet</span><div class=mct_shareit_button_count><i>0</i></div></a></div>"+
+                    "<div class='mct_twitter_follow mct_margin_top' id=mct_twitter_follow_"+settings.id+"><a href='https://twitter.com/intent/follow?screen_name="+settings.twitter.via+"' class='mct_shareit_button twitter' data-service='twitter-followers'><span class='mct_shareit_button_title'>Follow</span><div class=mct_shareit_button_count><i>"+settings.count.twitter.follower+"</i></div></a></div>"+
+                    "<div class='mct_facebook_share mct_margin_top' id=mct_facebook_share_"+settings.id+"><a class='mct_shareit_button fb' data-service='facebook_share'><span class='mct_shareit_button_title'>Share</span><div class=mct_shareit_button_count><i>0</i></div></a></div>"+
+                    "<div class='mct_facebook_like mct_margin_top' id=mct_facebook_like_"+settings.id+"><a href='"+settings.facebook.pageId+"' class='mct_shareit_button fb' data-service='facebook_like'><span class='mct_shareit_button_title'>Like</span><div class=mct_shareit_button_count><i>0</i></div></a></div>"+
+                    "<div class='mct_googleplus mct_margin_top' id=mct_googleplus_"+settings.id+"><a href='javascript:void(0);' class='mct_shareit_button google-plus' data-service='googleplus'><span class='mct_shareit_button_title'>Follow</span><div class=mct_shareit_button_count><i>0</i></div></a></div>"+
+                    "<div class='mct_linkedin mct_margin_top' id=mct_linkedin_"+settings.id+"><a href='javascript:void(0);' class='mct_shareit_button linkedin' data-service='linkedin'><span class='mct_shareit_button_title'>Share</span><div class=mct_shareit_button_count><i>0</i></div></a></div>"+
+                    "</div><div id=\"mct_shareit_msg_"+settings.id+"\" class='mct_shareit_msg'></div></div></div>";
             HTMLtoHide = elem.html();
             elem.html(con);
             elem.fadeIn();
             showButtons();
             getCount();
             initContainer();
-            $("#mct_shareit_msg_"+settings.rand).html("Powered By <a href='http://mycodingtricks.com/jquery/shareit-js-social-content-unlocker/' target=_blank><strong>My Coding Tricks</strong></a>");
+            $("#mct_shareit_msg_"+settings.id).html("Powered By <a href='http://mycodingtricks.com/jquery/shareit-js-social-content-unlocker/' target=_blank><strong>My Coding Tricks</strong></a>");
             if(settings.timeout!=0){
                 setTimeout(function(){
                     showContent("timeout","Content Shown",window.location.href);
@@ -80,7 +80,7 @@
         });
         
         this.angry = angry;
-        this.getID = function(){ return settings.rand }
+        this.getID = function(){ return settings.id }
         this.showContent = function(s,v){ showContent(s,v) }
         this.trackMctGoogle = function(data){
             if(data.state=="on"){
@@ -130,11 +130,11 @@
 		},$this.timeout);
 	    }
 	    if($this.close===true && typeof $this.close!="undefined"){
-		$("#mct_shareit_container_"+settings.rand).find(".mct_shareit_content").prepend("<a onclick='javascript: mct_shareit_container_"+settings.rand+"();' class='mct_close'>&times;</a>");	
+		$("#mct_shareit_container_"+settings.id).find(".mct_shareit_content").prepend("<a onclick='javascript: mct_shareit_container_"+settings.id+"();' class='mct_close'>&times;</a>");	
 	    }
         }
         function centerContainer(){
-            var container = $("#mct_shareit_container_"+settings.rand),
+            var container = $("#mct_shareit_container_"+settings.id),
                     self = container.find('.mct_shareit_content'),
                     width = self.innerWidth(),
                     cwidth = container.width(),
@@ -161,23 +161,23 @@
         function getCount(){
             $.getJSON('http://cdn.api.twitter.com/1/urls/count.json?url='+settings.twitter.url+'&callback=?',function(d){
                 settings.count.twitter.tweets = d.count;
-                $("#mct_twitter_tweet_"+settings.rand).find(".mct_shareit_button_count i").text(convertNumber(settings.count.twitter.tweets));
+                $("#mct_twitter_tweet_"+settings.id).find(".mct_shareit_button_count i").text(convertNumber(settings.count.twitter.tweets));
             });
             $.getJSON('https://cdn.syndication.twimg.com/widgets/followbutton/info.json?screen_names='+settings.twitter.via+'&callback=?',function(d){
                 settings.count.twitter.follower = d[0]['followers_count'];
-                $("#mct_twitter_follow_"+settings.rand).find(".mct_shareit_button_count i").text(convertNumber(settings.count.twitter.follower));
+                $("#mct_twitter_follow_"+settings.id).find(".mct_shareit_button_count i").text(convertNumber(settings.count.twitter.follower));
             });
             $.getJSON('https://api.facebook.com/method/fql.query?format=json&query=SELECT+total_count+FROM+link_stat+WHERE+url+%3D+%27'+encodeURIComponent(settings.facebook.url)+'%27&callback=?',function(d){
                 settings.count.facebook.share = d[0].total_count;
-                $("#mct_facebook_share_"+settings.rand).find(".mct_shareit_button_count i").text(convertNumber(settings.count.facebook.share));
+                $("#mct_facebook_share_"+settings.id).find(".mct_shareit_button_count i").text(convertNumber(settings.count.facebook.share));
             });
             $.getJSON('https://api.facebook.com/method/fql.query?format=json&query=SELECT+like_count+FROM+link_stat+WHERE+url+%3D+%27'+encodeURIComponent(settings.facebook.pageId)+'%27&callback=?',function(d){
                 settings.count.facebook.likes = d[0].like_count;
-                $("#mct_facebook_like_"+settings.rand).find(".mct_shareit_button_count i").text(convertNumber(settings.count.facebook.likes));
+                $("#mct_facebook_like_"+settings.id).find(".mct_shareit_button_count i").text(convertNumber(settings.count.facebook.likes));
             });
             $.getJSON("https://www.linkedin.com/countserv/count/share?url="+settings.linkedIn.url+"&format=jsonp&callback=?", function(data) {
                 settings.count.linkedIn.shares = data.count;
-                $("#mct_linkedin_"+settings.rand).find(".mct_shareit_button_count i").text(convertNumber(settings.count.linkedIn.shares));
+                $("#mct_linkedin_"+settings.id).find(".mct_shareit_button_count i").text(convertNumber(settings.count.linkedIn.shares));
             });
             var GooglePlusdata = {
                 "method":"pos.plusones.get",
@@ -202,14 +202,14 @@
                 data: JSON.stringify(GooglePlusdata),
                 success: function(r){
                     settings.count.googleplus.circledByCount = r.result.metadata.globalCounts.count;
-                    $("#mct_googleplus_"+settings.rand).find(".mct_shareit_button_count i").text(convertNumber(settings.count.googleplus.circledByCount));
+                    $("#mct_googleplus_"+settings.id).find(".mct_shareit_button_count i").text(convertNumber(settings.count.googleplus.circledByCount));
                 }
 
             });
         }
         function showButtons(){
             for(var i=0;i<settings.buttons.length;i++){
-                $("#mct_"+settings.buttons[i]+"_"+settings.rand).show();
+                $("#mct_"+settings.buttons[i]+"_"+settings.id).show();
                 switch(settings.buttons[i]){
                     case "facebook_like":
                     case "facebook_share":
@@ -237,13 +237,13 @@
             }
         }
         function addIN(){
-                $("#mct_linkedin_"+settings.rand).find(".mct_shareit_button_title").html("<script type=\"IN/Share\" data-url=\""+settings.linkedIn.url+"\"  data-onSuccess=\"mct_shareit_linkedin_"+rand+"\" data-onsuccess=\"mct_shareit_linkedin_"+rand+"\" data-success=\"mct_shareit_linkedin_"+rand+"\"><\/script>");
+                $("#mct_linkedin_"+settings.id).find(".mct_shareit_button_title").html("<script type=\"IN/Share\" data-url=\""+settings.linkedIn.url+"\"  data-onSuccess=\"mct_shareit_linkedin_"+rand+"\" data-onsuccess=\"mct_shareit_linkedin_"+rand+"\" data-success=\"mct_shareit_linkedin_"+rand+"\"><\/script>");
         }
         var LinkedInShare = function(){
             showContent("LinkedIn","Share",settings.linkedIn.url);
         }
         function checkFB(){
-            $("#mct_facebook_like_"+settings.rand).find(".mct_shareit_button_title").html("<div class=\"fb-like\" data-href=\""+settings.facebook.pageId+"\" data-layout=\"button\" data-action=\"like\" data-show-faces=\"false\" data-width=\"50px\" data-share=\"false\"></div>");
+            $("#mct_facebook_like_"+settings.id).find(".mct_shareit_button_title").html("<div class=\"fb-like\" data-href=\""+settings.facebook.pageId+"\" data-layout=\"button\" data-action=\"like\" data-show-faces=\"false\" data-width=\"50px\" data-share=\"false\"></div>");
               
             if(typeof FB=="undefined"){
                 var intw = setInterval(function(){
@@ -257,8 +257,8 @@
             }
         }
         function trackFB(){
-            if($("#mct_facebook_share_"+settings.rand).length>0){
-                $("#mct_facebook_share_"+settings.rand).click(function(){
+            if($("#mct_facebook_share_"+settings.id).length>0){
+                $("#mct_facebook_share_"+settings.id).click(function(){
                     FB.ui({
                         method: 'share',
                         href: settings.facebook.url,
@@ -306,8 +306,8 @@
             }
         }
         function trackGP(){
-            $("#mct_googleplus_"+settings.rand).find('.mct_shareit_button_title').html("<g:plusone></g:plusone>");
-                gapi.plusone.render($("#mct_googleplus_"+settings.rand).find('.mct_shareit_button_title').get(0),{"href":settings.googleplus.url,"annotation":"none","callback":"mct_shareit_googleplus_"+rand,"width":"100"});
+            $("#mct_googleplus_"+settings.id).find('.mct_shareit_button_title').html("<g:plusone></g:plusone>");
+                gapi.plusone.render($("#mct_googleplus_"+settings.id).find('.mct_shareit_button_title').get(0),{"href":settings.googleplus.url,"annotation":"none","callback":"mct_shareit_googleplus_"+rand,"width":"100"});
         }
         var ajaxFB = false;
         function loadFB(){
@@ -354,7 +354,7 @@
         }
         function showContent(service,action,url){
             if(typeof (_gaq) !=="undefined") {  _gaq.push(['_trackSocial', service, action,url]); console.log("Pushed : "+url)}
-                    var ss = $("#mct_shareit_container_"+settings.rand);
+                    var ss = $("#mct_shareit_container_"+settings.id);
                     var pr = ss.parent();
                     ss.fadeOut(1000,function(){
                       pr.html(HTMLtoHide).fadeIn();
@@ -362,7 +362,7 @@
                     });
         }
         function angry(){
-            $("#mct_shareit_msg_"+settings.rand).html("You don't like Us?").addClass('error');
+            $("#mct_shareit_msg_"+settings.id).html("You don't like Us?").addClass('error');
         }
         return this;
     }
